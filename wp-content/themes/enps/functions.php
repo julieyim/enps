@@ -5,6 +5,7 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package ENPS
+ * @version 1.0.0
  */
 
 if ( ! defined( '_S_VERSION' ) ) {
