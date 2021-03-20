@@ -54,6 +54,25 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Generic
 --------------------------------------------------------------*/
 
+/*--------------------------------------------------------------
+# Vars
+--------------------------------------------------------------*/
+
+:root{
+	--bg:#F3F3F3;
+	--dark-grey: #3D4243;
+	--white:#F9FAFB;
+	--light-beige:#FBF6F4;
+	--blue:#205473;
+	--yellow:#FFE978;
+	--bright-green:#CCFC95;
+	--light-green:#C0E19B;
+	--olive-green:#85A081;
+	--purple:#685C88;
+	--red:#ED6663;
+}
+
+
 /* Normalize
 --------------------------------------------- */
 
@@ -543,13 +562,13 @@ a {
 	color: #4169e1;
 }
 
-a:visited {
-	color: #800080;
-}
-
 a:hover,
 a:focus,
 a:active {
+	color: #191970;
+}
+
+.current-menu-item a{
 	color: #191970;
 }
 
@@ -1009,21 +1028,33 @@ header .custom-logo-link{
 ----------------------------------------------- */
 header{
 	display: flex;
-	border: 1px solid tomato;
+	justify-content: space-between;
 }
-
 
 .top-nav{
 	display: grid;
+	padding: 2rem;
+	font-family: 'Capriola', 'Montserrat', 'Helvetica Neue', sans-serif;
 }
+
+/* .top-nav li a{
+	font-weight: bold;
+} */
 
 .main-nav{
 	grid-row: 2;
+	display: flex;
+	align-items: flex-end;
 }
 
 .sub-nav{
 	grid-row: 1;
 	display: flex;
 	justify-content: flex-end;
+	font-size: 1.6rem;
 }
 
+.main-menu li,
+.sub-menu li{
+	padding: 0 1.6rem;
+}
