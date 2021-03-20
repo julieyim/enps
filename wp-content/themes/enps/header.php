@@ -51,10 +51,23 @@
 			<?php
 			wp_nav_menu(
 				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
+					'theme_location' => 'main-menu',
+					'menu_class' => 'main-menu',
+					'menu_id' => 'main-menu',
 				)
 			);
 			?>
 		</nav><!-- #site-navigation -->
+
+		<nav class="main-navigation">
+			<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'sub-menu',
+						'menu_class' => 'sub-menu',
+						'menu_id' => 'sub-menu',
+					)
+				);
+			?>
+		</nav>
 	</header><!-- #masthead -->

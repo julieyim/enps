@@ -51,7 +51,9 @@ if ( ! function_exists( 'enps_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'enps' ),
+				'main-menu' => esc_html__( 'Primary', 'enps' ),
+				'sub-menu' => 'Sub Menu',
+				'footer-menu-one' => 'Footer Menu',
 			)
 		);
 
