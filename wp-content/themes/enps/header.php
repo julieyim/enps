@@ -46,28 +46,31 @@
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'enps' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'main-menu',
-					'menu_class' => 'main-menu',
-					'menu_id' => 'main-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-
-		<nav class="main-navigation">
-			<?php
+		<div class="top-nav">
+			<nav id="site-navigation" class="main-navigation main-nav">
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'enps' ); ?></button>
+				<?php
 				wp_nav_menu(
-					array(
-						'theme_location' => 'sub-menu',
-						'menu_class' => 'sub-menu',
-						'menu_id' => 'sub-menu',
-					)
-				);
-			?>
-		</nav>
+						array(
+							'theme_location' => 'main-menu',
+							'menu_class' => 'main-menu',
+							'menu_id' => 'main-menu',
+						)
+					);
+				?>
+			</nav><!-- #site-navigation -->
+
+			<nav class="main-navigation sub-nav">
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'sub-menu',
+							'menu_class' => 'sub-menu',
+							'menu_id' => 'sub-menu',
+						)
+					);
+				?>
+			</nav>
+		</div>
+		
 	</header><!-- #masthead -->

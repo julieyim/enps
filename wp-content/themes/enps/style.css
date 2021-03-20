@@ -405,7 +405,7 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: "Montserrat", "Helvetica Neue", sans-serif;
 	font-size: 1.8rem;
 	line-height: 1.5;
 }
@@ -417,10 +417,15 @@ h4,
 h5,
 h6 {
 	clear: both;
+	font-family: 'Capriola', 'Raleway', sans-serif;
 }
 
 p {
-	margin-bottom: 1.5em;
+	margin-bottom: 1.5;
+}
+
+footer p{
+	font-size: 1.4rem;
 }
 
 dfn,
@@ -973,13 +978,52 @@ textarea {
 
 /* ************** CUSTOM STYLING ************** */
 
+/* logo
+----------------------------------------------- */
+header .custom-logo-link{
+	width: 36%;
+	min-width: 18rem;
+}
+
+@media screen and (min-width:40rem){
+	header .custom-logo-link{
+		width: 30%;
+		min-width: 22rem;
+	}
+}
+
+@media screen and (min-width:50rem){
+	header .custom-logo-link{
+		min-width: 22rem;
+	}
+}
+
+@media screen and (min-width:100rem){
+	header{
+		display: flex;
+	}
+}
+
+
 /* header
 ----------------------------------------------- */
 header{
 	display: flex;
+	border: 1px solid tomato;
 }
 
-header .custom-logo-link{
-	width: 26rem;
+
+.top-nav{
+	display: grid;
+}
+
+.main-nav{
+	grid-row: 2;
+}
+
+.sub-nav{
+	grid-row: 1;
+	display: flex;
+	justify-content: flex-end;
 }
 
