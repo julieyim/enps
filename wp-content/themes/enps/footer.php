@@ -13,17 +13,8 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'enps' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'enps' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'enps' ), 'enps', '<a href="http://underscores.me/">Ji Won Yim, Patrick Tran</a>' );
-				?>
+			<p> <?php echo date('Y'); ?> &copy; Edmonton Native Plant Society. All rights reserved.</p>
+			<p>Website created by Large Macchiato.</p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
