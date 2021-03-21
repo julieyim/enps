@@ -5,6 +5,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package ENPS
+ * @version 1.0.0
  */
 
 get_header();

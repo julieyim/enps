@@ -52,9 +52,9 @@
 				<?php
 				wp_nav_menu(
 						array(
-							'theme_location' => 'main-menu',
-							'menu_class' => 'main-menu',
-							'menu_id' => 'main-menu',
+							'theme_location' => 'main-nav',
+							'menu_class' => 'main-nav',
+							'menu_id' => 'main-nav',
 						)
 					);
 				?>
@@ -64,9 +64,9 @@
 				<?php
 					wp_nav_menu(
 						array(
-							'theme_location' => 'sub-menu',
-							'menu_class' => 'sub-menu',
-							'menu_id' => 'sub-menu',
+							'theme_location' => 'sub-nav',
+							'menu_class' => 'sub-nav',
+							'menu_id' => 'sub-nav',
 						)
 					);
 				?>

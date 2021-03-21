@@ -59,6 +59,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------------------------*/
 
 :root{
+	/* colours */
 	--bg:#F3F3F3;
 	--dark-grey: #3D4243;
 	--white:#F9FAFB;
@@ -70,6 +71,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	--olive-green:#85A081;
 	--purple:#685C88;
 	--red:#ED6663;
+
+	/* fonts */
+	--heading:'Capriola', 'Montserrat', 'Helvetica Neue', sans-serif;
+	--body: 'Montserrat', 'Helvetica Neue', sans-serif;
 }
 
 
@@ -436,7 +441,7 @@ h4,
 h5,
 h6 {
 	clear: both;
-	font-family: 'Capriola', 'Raleway', sans-serif;
+	font-family: var(--heading);
 }
 
 p {
@@ -999,21 +1004,26 @@ textarea {
 
 /* logo
 ----------------------------------------------- */
-header .custom-logo-link{
+.custom-logo-link{
 	width: 36%;
-	min-width: 18rem;
+	min-width: 16rem;
 }
 
 @media screen and (min-width:40rem){
 	header .custom-logo-link{
 		width: 30%;
-		min-width: 22rem;
+		min-width: 16rem;
 	}
 }
 
-@media screen and (min-width:50rem){
+@media screen and (min-width:80rem){
 	header .custom-logo-link{
-		min-width: 22rem;
+		transition: all 0.3s ease-in-out;
+	}
+
+	header .custom-logo-link:hover{
+		opacity: 70%;
+		transition: all 0.3s ease-in-out;
 	}
 }
 
@@ -1024,6 +1034,13 @@ header .custom-logo-link{
 }
 
 
+/* container
+----------------------------------------------- */
+.container{
+	max-width: 120rem;
+}
+
+
 /* header
 ----------------------------------------------- */
 header{
@@ -1031,15 +1048,27 @@ header{
 	justify-content: space-between;
 }
 
+header,
+footer{
+	background-color: var(--white);
+}
+
 .top-nav{
 	display: grid;
 	padding: 2rem;
-	font-family: 'Capriola', 'Montserrat', 'Helvetica Neue', sans-serif;
 }
 
-/* .top-nav li a{
-	font-weight: bold;
-} */
+.top-nav li a{
+	font-family: var(--heading);
+	color: var(--dark-grey);
+}
+
+@media screen and (min-width:80rem){
+	.top-nav li a:hover{
+		color: var(--blue);
+		text-decoration: underline;
+	}
+}
 
 .main-nav{
 	grid-row: 2;
@@ -1054,7 +1083,41 @@ header{
 	font-size: 1.6rem;
 }
 
-.main-menu li,
-.sub-menu li{
+.main-nav li,
+.sub-nav li{
 	padding: 0 1.6rem;
 }
+
+.sub-menu{
+	flex-direction: column;
+	padding-left: 1.6rem;
+	padding-bottom: 1.6rem;
+}
+
+.sub-menu li{
+	padding-top: 1.6rem;
+}
+
+/* footer
+----------------------------------------------- */
+footer{
+	padding: 6.3rem 0;
+}
+
+footer .container{
+	display: flex;
+	flex-wrap: wrap;
+	height: 46rem;
+}
+
+.footer-nav ul{
+	border: 1px solid salmon;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.footer-nav li{
+	font-size: 1.6rem;
+}
+
+
