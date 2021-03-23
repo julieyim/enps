@@ -22,6 +22,43 @@ if ( ! function_exists( 'enps_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function enps_setup() {
+		/** post formats */
+		$post_formats =
+		array(
+			'aside',
+			'image',
+			'gallery',
+			'video',
+			'audio',
+			'link',
+			'quote',
+			'status');
+
+		add_theme_support( 'post-formats', $post_formats);
+
+		/** post thumbnail **/
+		add_theme_support( 'post-thumbnails' );
+
+		/** title-tag **/
+		add_theme_support( 'title-tag' );
+
+		/** HTML5 support **/
+		add_theme_support( 'html5', array( 'comment-list', 'comment-form','search-form', 'gallery', 'caption' ) );
+
+		/** refresh widgest **/
+		add_theme_support( 'customize-selective-refresh-widgets' );
+
+		/** custom background **/
+		$bg_defaults = array(
+			'default-image' => '',
+			'default-preset' => 'default',
+			'default-size' => 'cover',
+			'default-repeat' => 'no-repeat',
+			'default-attachment' => 'scroll',
+		);
+
+		add_theme_support( 'custom-background', $bg_defaults );
+
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
