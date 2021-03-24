@@ -21,35 +21,49 @@ get_header();
         <p>this is the front page</p>
         <div>
             <!-- recent notices -->
-            <?php if(have_posts()) : ?>
-                <div class="notices">
-                    <div class="flex">
-                        <!-- start the loop -->
-                        <?php while(have_posts()) : the_post(); ?>
-                            <!-- permalink creates a link -->
-                            <div class="blog-card">
+            <div class="notices">
+                <div class="flex">
+                    <!-- start the loop -->
+                    
+                    <!-- end while loop -->
+                </div> <!-- end flex -->
+            </div> <!-- end inner container -->
+
+            <!-- events -->
+            <div class="events">
+                <div class="flex">
+                    <!-- argument for displaying the customized loop -->
+                    <?php
+                        $args = array(
+                            'post_type' => 'events',
+                            'posts_per_page' => 3,
+                        );
+                        $the_event_query = new WP_Query ($args);
+                    ?>
+                    <!-- end argument -->
+                    <!-- display the customized loop -->
+                    <?php if( $the_event_query->have_posts()): ?>
+                        <?php while( $the_event_query->have_posts()) :$the_event_query->the_post(); ?>
+                            <!-- display content -->
+                            <div class="card">
                                 <header>
-                                    <?php echo get_the_post_thumbnail( $post->ID, 'medium' ); ?>
-                                    <a href="<?php the_permalink(); ?>"><?php single_post_title('<h4>','</h4>'); ?></a>
+                                    <?php echo get_the_post_thumbnail( $post->ID, 'large') ?>
                                 </header>
-                                <div class="blog-content">
-                                    <?php the_category(); ?>
-                                    <ul>
-                                        <li><?php echo get_the_date(); ?></li>
-                                    </ul>
-                                    <?php the_excerpt(); ?>
-                                    <a href="<?php the_permalink(); ?>"><?php _e('Read More >');?></a>
+                                <div class="card-body">
+                                    <?php the_excerpt('...'); ?>
                                 </div>
                             </div>
                         <?php endwhile; ?>
-                        <!-- end while loop -->
-                    </div> <!-- end flex -->
-                </div> <!-- end inner container -->
-            <?php else : ?>
-                <!-- send to search page / some other general page with search
-                function, tags, categories, archives,etc.. -->
-                <?php get_template_part('template-parts/content', 'none'); ?>
-            <?php endif; ?>
+
+                        <?php wp_reset_postdata(); ?>
+
+                        <?php else: ?>
+                        <p><?php _e('Sorry, no post matched your criteria.'); ?></p>
+
+                    <?php endif; ?>
+                    <!-- end display customized loop -->
+                </div> <!-- end flex -->
+            </div> <!-- end inner container -->
         </div>
 
 	</main><!-- #main -->

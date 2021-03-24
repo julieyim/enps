@@ -23,7 +23,7 @@ if ( ! function_exists( 'enps_setup' ) ) :
 	 */
 	function enps_setup() {
 		/** post formats */
-		$post_formats =
+		/* $post_formats =
 		array(
 			'aside',
 			'image',
@@ -37,27 +37,27 @@ if ( ! function_exists( 'enps_setup' ) ) :
 		add_theme_support( 'post-formats', $post_formats);
 
 		/** post thumbnail **/
-		add_theme_support( 'post-thumbnails' );
+		//add_theme_support( 'post-thumbnails' );
 
 		/** title-tag **/
-		add_theme_support( 'title-tag' );
+		//add_theme_support( 'title-tag' );
 
 		/** HTML5 support **/
-		add_theme_support( 'html5', array( 'comment-list', 'comment-form','search-form', 'gallery', 'caption' ) );
+		//add_theme_support( 'html5', array( 'comment-list', 'comment-form','search-form', 'gallery', 'caption' ) );
 
 		/** refresh widgest **/
-		add_theme_support( 'customize-selective-refresh-widgets' );
+		//add_theme_support( 'customize-selective-refresh-widgets' );
 
 		/** custom background **/
-		$bg_defaults = array(
+		/* $bg_defaults = array(
 			'default-image' => '',
 			'default-preset' => 'default',
 			'default-size' => 'cover',
 			'default-repeat' => 'no-repeat',
 			'default-attachment' => 'scroll',
-		);
+		); */
 
-		add_theme_support( 'custom-background', $bg_defaults );
+		//add_theme_support( 'custom-background', $bg_defaults ); 
 
 		/*
 		 * Make theme available for translation.
@@ -218,3 +218,51 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+
+
+// with this area you can register a number of files/objects
+$dc_includes = array(
+	'/widgets.php',                         // Register widget area.
+);
+
+foreach ( $dc_includes as $file ) {
+	$filepath = locate_template( 'inc' . $file );
+	if ( ! $filepath ) {
+		trigger_error( sprintf( 'Error locating /inc%s for inclusion', $file ), E_USER_ERROR );
+	}
+	require_once $filepath;
+}
+
+  //Register Custom Post type
+  function create_post_type_events(){
+    // creates label names for the post type in the dashboard the post panel and in the toolbar.
+        $labels = array(
+            'name'                  => __('Events'),
+            'singular_name'         => __('Event'), 
+            'add_new'               => 'New Event', 
+            'add_new_item'          => 'Add New Event',
+            'edit_item'             => 'Edit Event',
+            'featured_image'        => _x( 'Event Post Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
+            'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+            'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+            'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+
+        );
+        // creates the post functionality that you want for a full listing
+        $args = array(
+            'labels'            => $labels,
+            'public'            => true,
+            'has_archive'       => true,
+            'rewrite'           => array('slug' => 'events'),
+            'menu_position'     => 20,
+            'menu_icon'         => 'dashicons-calendar-alt',
+            'capability_type'   => 'page',
+            'taxonomies'        => array('category', 'post_tag'),
+            'supports'          => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
+        );
+
+        register_post_type('events', $args);
+    }
+    // Hooking up our function to theme setup
+    add_action('init', 'create_post_type_events');
