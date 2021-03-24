@@ -266,3 +266,8 @@ foreach ( $dc_includes as $file ) {
     }
     // Hooking up our function to theme setup
     add_action('init', 'create_post_type_events');
+
+function my_excerpt_length($length){
+	return 26;
+}
+add_filter('excerpt_length', 'my_excerpt_length');

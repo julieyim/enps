@@ -16,31 +16,29 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
-
-        <p>this is the front page</p>
+	<main id="primary" class="container">
         <div>
             <!-- recent notices -->
-            <div class="notices">
-                <div class="flex">
+            <div class="notice">
+                <h2>Recent Notice</h2>
                     <!-- start the loop -->
                     
                     <!-- end while loop -->
-                </div> <!-- end flex -->
             </div> <!-- end inner container -->
 
             <!-- events -->
             <div class="events">
-                <div class="flex">
-                    <!-- argument for displaying the customized loop -->
-                    <?php
-                        $args = array(
-                            'post_type' => 'events',
-                            'posts_per_page' => 3,
-                        );
-                        $the_event_query = new WP_Query ($args);
-                    ?>
-                    <!-- end argument -->
+                <h2>Events</h2>
+                <!-- argument for displaying the customized loop -->
+                <?php
+                    $args = array(
+                        'post_type' => 'events',
+                        'posts_per_page' => 3,
+                    );
+                    $the_event_query = new WP_Query ($args);
+                ?>
+                <!-- end argument -->
+                <div class="grid-3">
                     <!-- display the customized loop -->
                     <?php if( $the_event_query->have_posts()): ?>
                         <?php while( $the_event_query->have_posts()) :$the_event_query->the_post(); ?>
@@ -50,7 +48,36 @@ get_header();
                                     <?php echo get_the_post_thumbnail( $post->ID, 'large') ?>
                                 </header>
                                 <div class="card-body">
-                                    <?php the_excerpt('...'); ?>
+                                    <a href="<?php the_permalink(); ?>">
+                                        <!-- limit post title length -->
+                                        <?php if (strlen($post->post_title) > 35) {
+                                            echo substr(the_title('<h4>', $before = '', $after = '', FALSE, ),  0, 35) . '...', '</h4>';
+                                        } 
+                                        else {
+                                            the_title('<h4>','</h4>');
+                                        } ?>
+                                        <!-- end limit post title length -->
+                                    </a>
+                                    <p>
+                                        <b> Date: </b>
+                                        <?php $date = get_field('date'); ?>
+                                        <?php 
+                                            if($date){
+                                                _e($date);
+                                            }
+                                        ?>
+
+                                        <?php $time = get_field('time'); ?>
+                                        <?php 
+                                            if($time){
+                                                _e($time);
+                                            }
+                                        ?>
+                                    </p>
+                                    <?php the_excerpt(''); ?>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="<?php the_permalink(); ?>"><?php _e('See Event');?></a>
                                 </div>
                             </div>
                         <?php endwhile; ?>

@@ -62,6 +62,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	/* colours */
 	--bg:#F3F3F3;
 	--dark-grey: #3D4243;
+	--box-shadow: rgba(0,0,0,0.16);
 	--white:#F9FAFB;
 	--light-beige:#FBF6F4;
 	--blue:#205473;
@@ -72,9 +73,16 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	--purple:#685C88;
 	--red:#ED6663;
 
-	/* fonts */
+	/* font family */
 	--heading:'Capriola', 'Montserrat', 'Helvetica Neue', sans-serif;
 	--body: 'Montserrat', 'Helvetica Neue', sans-serif;
+
+	/* font sizes */
+	--h1: 4.883rem;
+	--h2: 3.906rem;
+	--h3: 3.125rem;
+	--h4: 2.5rem;
+	--p: 1.8rem;
 }
 
 
@@ -118,9 +126,29 @@ main {
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
  */
+h1,
+h2,
+h3,
+h4{
+	font-family: var(--heading);
+}
+
 h1 {
-	font-size: 2em;
+	font-size: var(--h1);
+	font-family: var(--heading);
 	margin: 0.67em 0;
+}
+
+h2{
+	font-size: var(--h2);
+}
+
+h3{
+	font-size: var(--h3);
+}
+
+h4{
+	font-size: var(--h4);
 }
 
 /* Grouping content
@@ -1045,6 +1073,18 @@ header .custom-logo-link{
 ----------------------------------------------- */
 .container{
 	max-width: 140rem;
+	margin: 0 auto;
+}
+
+.flex{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.grid-3{
+	display: grid;
+	grid-template-columns: repeat (3,1fr);
+	grid-gap: 2rem;
 }
 
 
@@ -1053,7 +1093,6 @@ header .custom-logo-link{
 header .container{
 	display: flex;
 	justify-content: space-between;
-	margin: 0 auto;
 }
 
 header,
@@ -1119,8 +1158,7 @@ footer{
 
 /* front-page
 ----------------------------------------------- */
-.notices{
-	border: 1px solid salmon;
+.notice{
 }
 
 .blog-content{
@@ -1128,9 +1166,65 @@ footer{
 }
 
 .events{
-	border: 2px solid green;
-	
 }
+
+.events .card{
+	background-color: var(--light-beige);
+	border-radius: 0.6rem;
+	box-shadow: 0 0 0.5rem 0 var(--box-shadow);
+	display: flex;
+	flex-direction: column;
+}
+
+.events .card:first-of-type{
+	grid-column:1;
+}
+
+.events .card:nth-last-of-type(2){
+	grid-column:2;
+}
+
+.events .card:last-of-type{
+	grid-column:3;
+}
+
+.events .card header{
+	height: 20rem;
+}
+
+.events .card h4{
+	background-color: var(--light-beige);
+	margin: 1rem 0;
+}
+
+.events .card-body a:hover,
+.events .card-footer a:hover{
+	color: var(--dark-grey);
+	text-decoration: underline;
+}
+
+.events .card a{
+	color: var(--purple);
+	text-decoration: none;
+}
+
+.events .card-body,
+.events .card-footer{
+	padding: 1.6rem 2rem;
+	padding-bottom: 2.2rem;
+}
+
+.events .card-footer{
+	justify-content: flex-end;
+	align-self: center;
+}
+
+.events .card-footer a{
+	font-family: var(--heading);
+}
+
+
+
 
 /* footer
 ----------------------------------------------- */
