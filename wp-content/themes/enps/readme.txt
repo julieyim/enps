@@ -10,27 +10,19 @@ Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-A starter theme called ENPS.
+A custom WordPress theme called ENPS.
 
 == Description ==
 
 Wordpress theme for the Edmonton Native Plant Society.
 
-== Installation ==
-
-1. In your admin panel, go to Appearance > Themes and click the Add New button.
-2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
-
-== Frequently Asked Questions ==
-
-= Does this theme support any plugins? =
+== Plugins ==
 
 ENPS includes support for WooCommerce and for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-= 1.0 - May 12 2015 =
+= 1.0.0 - April 2021 =
 * Initial release
 
 == Credits ==
