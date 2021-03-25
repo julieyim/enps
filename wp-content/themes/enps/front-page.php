@@ -21,6 +21,18 @@ get_header();
             <h1>Edmonton Native Plant Society</h1>
         </div>
     </div>
+    <div class="cta-banner">
+        <div class="inner-container flex">
+            <div>
+                <h4>Join Our Wildflower Newsletter</h4>
+                <p>Stay in touch to know our latest events, projects, and news with the ENPS!</p>
+            </div>
+            <div class="sign-up">
+                <input type="text">
+                <button>Join</button>
+            </div>
+        </div>
+    </div>
 	<main id="primary" class="container">
         <div class="inner-container">
             <!-- recent notices -->
@@ -41,7 +53,9 @@ get_header();
                         <!-- display content -->
                         <div class="card card-wide">
                             <header>
-                                <?php echo get_the_post_thumbnail( $post->ID, 'large') ?>
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php echo get_the_post_thumbnail( $post->ID, 'large') ?>
+                                </a>
                             </header>
                             <div class="card-body">
                                 <a href="<?php the_permalink(); ?>">
@@ -73,8 +87,12 @@ get_header();
 
             <!-- events -->
             <div class="events">
-                <h2>Events</h2>
-                
+                <div class="flex">
+                    <h2>Events</h2>
+                    <a href="/events" class="btn btn-yellow">
+                        See All Events&ensp;&gt;
+                    </a>
+                </div>
                 <!-- argument for displaying the customized loop -->
                 <?php
                     $args = array(
@@ -91,13 +109,15 @@ get_header();
                             <!-- display content -->
                             <div class="card card-tall">
                                 <header>
-                                    <?php echo get_the_post_thumbnail( $post->ID, 'large') ?>
+                                    <a href="<?php the_permalink(); ?>">
+                                        <?php echo get_the_post_thumbnail( $post->ID, 'large') ?>
+                                    </a>
                                 </header>
                                 <div class="card-body">
                                     <a href="<?php the_permalink(); ?>">
                                         <!-- limit post title length -->
-                                        <?php if (strlen($post->post_title) > 45) {
-                                            echo substr(the_title('<h4>', $before = '', $after = '', FALSE, ),  0, 45) . '...', '</h4>';
+                                        <?php if (strlen($post->post_title) > 43) {
+                                            echo substr(the_title('<h4>', $before = '', $after = '', FALSE, ),  0, 43) . '...', '</h4>';
                                         } 
                                         else {
                                             the_title('<h4>','</h4>');
@@ -121,7 +141,7 @@ get_header();
                                             }
                                         ?>
                                     </p>
-                                    <?php the_excerpt(''); ?>
+                                    <?php the_excerpt(); ?>
                                 </div>
                                 <div class="card-footer">
                                     <a href="<?php the_permalink(); ?>"><?php _e('See Event');?></a>
@@ -161,20 +181,30 @@ get_header();
                             </header>
                             <div class="card-body">
                                 <?php the_content(); ?>
+                                <a href="/about-us" class="btn btn-yellow">
+                                    About Us
+                                </a>
+                                <a href="/volunteer" class="btn btn-yellow">
+                                    Volunteer with Us
+                                </a>
                             </div>
                         </div>
                     <?php endwhile; ?>
-
                     <?php wp_reset_postdata(); ?>
-
                     <?php else: ?>
                     <p><?php _e('Sorry, no post matched your criteria.'); ?></p>
-
                 <?php endif; ?>
                 <!-- end display customized loop -->
             </div> <!-- end mission statement -->
         </div>
 	</main><!-- #main -->
-
+    <div class="cta-banner">
+        <div class="inner-container cta-volunteer flex">
+            <p>Interested in joining the fun? We have many projects going on that may be right for you. Come volunteer today!</p>
+            <a href="/volunteer" class="btn btn-green">
+                Volunteer Now
+            </a>
+        </div>
+    </div>
 <?php
 get_footer();

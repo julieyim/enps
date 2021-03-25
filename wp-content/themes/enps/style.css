@@ -68,6 +68,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	--blue:#205473;
 	--yellow:#FFE978;
 	--bright-green:#CCFC95;
+	--selection:rgba(167, 230, 241, 0.562);
 	--light-green:#C0E19B;
 	--olive-green:#85A081;
 	--overlay-green:#85a08144;
@@ -87,6 +88,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	--p: 1.8rem;
 }
 
+::selection{
+	background-color: var(--selection);
+}
 
 /* Normalize
 --------------------------------------------- */
@@ -184,6 +188,7 @@ pre {
  */
 a {
 	background-color: transparent;
+	text-decoration: none;
 }
 
 /**
@@ -475,8 +480,13 @@ h6 {
 	font-family: var(--heading);
 }
 
+h2{
+	margin-bottom: 1.4rem;
+}
+
 p {
 	margin-bottom: 1.5;
+	line-height: 1.5;
 }
 
 footer p{
@@ -1085,7 +1095,6 @@ header .custom-logo-link{
 .inner-container{
 	max-width: 120rem;
 	margin: 0 auto;
-	padding-bottom: 2rem;
 }
 
 .flex{
@@ -1097,6 +1106,13 @@ header .custom-logo-link{
 	display: grid;
 	grid-template-columns: repeat(3,1fr);
 	grid-gap: 2.2rem;
+	width: 100%;
+}
+
+.grid-2{
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	width: 100%;
 }
 
 
@@ -1110,7 +1126,7 @@ header .container{
 header,
 footer{
 	background-color: var(--white);
-	box-shadow: var(--box-shadow);
+	box-shadow: 0 0 0.3rem 0 var(--box-shadow);
 }
 
 .site-branding{
@@ -1182,7 +1198,7 @@ footer{
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
-	box-shadow: var(--box-shadow);
+	box-shadow: 0 0 0.3rem 0 var(--box-shadow);
 }
 
 .inner-hero{
@@ -1203,6 +1219,61 @@ footer{
 	text-shadow: 0.3rem 0.3rem 0.3rem var(--box-shadow);
 }
 
+/* banners
+----------------------------------------------- */
+.cta-banner{
+	background-color: var(--blue);
+	box-shadow: 0 0 0.3rem 0 var(--box-shadow);
+	padding: 1.6rem 0;
+}
+
+.cta-banner .flex{
+	justify-content: space-between;
+	align-items: center;
+}
+
+.cta-banner h4,
+.cta-banner p{
+	margin: 0;
+}
+
+.cta-banner h4{
+	color: var(--bright-green);
+}
+
+.cta-banner p{
+	color: var(--white);
+}
+
+.cta-banner .sign-up{
+	display: flex;
+	margin: auto 0;
+}
+
+.cta-volunteer{
+	align-items: center;
+	justify-content: space-between;
+}
+
+.cta-volunteer p{
+	padding: 1.6rem 0;
+}
+
+.page-banner{
+	background-color: var(--dark-grey);
+	padding: 1.6rem 0;
+}
+
+.page-banner h1{
+	margin: 0;
+	color: var(--light-green);
+}
+
+.page-banner p{
+	color: var(--white);
+	margin-top: 0;
+}
+
 
 /* cards
 ----------------------------------------------- */
@@ -1211,25 +1282,28 @@ footer{
 	box-shadow: 0 0 0.5rem 0 var(--box-shadow);
 	border-radius: 0.6rem;
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .card header img{
 	object-fit: cover; 
+	object-position: center;
 	width: 100%;
-}
-
-.card-wide{
-	max-height: 26rem;
+	height: 100%;
 }
 
 .card-wide header{
-	width: 62%;
+	width: 32%;
 }
 
+.card-wide .card-body{
+	width: 68%;
+}
+
+.card-wide header,
 .card-wide header img{
 	border-top-left-radius: 0.6rem;
 	border-bottom-left-radius: 0.6rem;
-	max-height: 26rem;
 }
 
 .card-tall{
@@ -1237,14 +1311,11 @@ footer{
 	height: 100%;
 }
 
-.card-tall header{
-	height: 26rem;
-}
-
+.card-tall header,
 .card-tall header img{
 	border-top-left-radius: 0.6rem;
 	border-top-right-radius: 0.6rem;
-	max-height: 26rem;
+	height: 26rem;
 }
 
 .card h4{
@@ -1276,6 +1347,47 @@ footer{
 	font-family: var(--heading);
 }
 
+/* buttons
+----------------------------------------------- */
+a.btn{
+	padding: 1rem 1.6rem;
+	box-shadow: 0 0.1rem 0.3rem 0 var(--box-shadow);
+	border-radius: 0.3rem;
+	display: inline-block;
+	color: var(--dark-grey);
+	font-weight: bold;
+	font-size: 1.6rem;
+	transition: all 0.3s ease-in-out;
+}
+
+a.btn:hover{
+	text-decoration: none;
+	transition: all 0.3s ease-in-out;
+	background-color: var(--white);
+}
+
+a.btn-yellow{
+	background-color: var(--yellow);
+}
+
+a.btn-green{
+	background-color: var(--light-green);
+}
+
+a.btn-grey{
+	color: var(--white);
+	background-color: var(--dark-grey);
+}
+
+a.btn-purple{
+	color: var(--white);
+	background-color: var(--purple);
+}
+
+a.btn-blue{
+	color: var(--white);
+	background-color: var(--blue);
+}
 
 /* front page
 ----------------------------------------------- */
@@ -1283,6 +1395,11 @@ footer{
 .events,
 .mission{
 	padding: 2rem 0;
+}
+
+.events .flex{
+	align-items: center;
+	justify-content: space-between;
 }
 
 .events .card:first-of-type{
@@ -1299,6 +1416,11 @@ footer{
 
 .mission{
 	margin-bottom: 4rem;
+}
+
+.mission .card-body .btn{
+	margin-right: 1rem;
+	margin-bottom: 1.4rem;
 }
 
 
