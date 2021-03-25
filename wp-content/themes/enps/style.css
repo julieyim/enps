@@ -70,6 +70,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	--bright-green:#CCFC95;
 	--light-green:#C0E19B;
 	--olive-green:#85A081;
+	--overlay-green:#85a08144;
 	--purple:#685C88;
 	--red:#ED6663;
 
@@ -78,6 +79,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	--body: 'Montserrat', 'Helvetica Neue', sans-serif;
 
 	/* font sizes */
+	--title: 7.629rem;
 	--h1: 4.883rem;
 	--h2: 3.906rem;
 	--h3: 3.125rem;
@@ -113,6 +115,7 @@ html {
 body {
 	margin: 0;
 	font-size: 1.6rem;
+	background-color: var(--bg);
 }
 
 /**
@@ -576,7 +579,6 @@ object {
 }
 
 img {
-	height: auto;
 	max-width: 100%;
 }
 
@@ -1038,6 +1040,10 @@ header .custom-logo-link{
 	padding: 1.6rem;
 }
 
+.custom-logo{
+	height: auto;
+}
+
 @media screen and (min-width:40rem){
 	header .custom-logo-link{
 		width: 30%;
@@ -1076,6 +1082,12 @@ header .custom-logo-link{
 	margin: 0 auto;
 }
 
+.inner-container{
+	max-width: 120rem;
+	margin: 0 auto;
+	padding-bottom: 2rem;
+}
+
 .flex{
 	display: flex;
 	flex-wrap: wrap;
@@ -1083,8 +1095,8 @@ header .custom-logo-link{
 
 .grid-3{
 	display: grid;
-	grid-template-columns: repeat (3,1fr);
-	grid-gap: 2rem;
+	grid-template-columns: repeat(3,1fr);
+	grid-gap: 2.2rem;
 }
 
 
@@ -1098,6 +1110,7 @@ header .container{
 header,
 footer{
 	background-color: var(--white);
+	box-shadow: var(--box-shadow);
 }
 
 .site-branding{
@@ -1156,24 +1169,120 @@ footer{
 	padding-top: 1.6rem;
 }
 
-/* front-page
+/* hero
 ----------------------------------------------- */
-.notice{
+.hero{
+	width: 100%;
+	height: 50rem;
+	background: var(--olive-green);
+	background: url(https://edmnps.web.dmitcapstone.ca/wp-content/uploads/2021/03/harebell-lg.jpg);
+	background: 
+		linear-gradient(var(--overlay-green), var(--box-shadow)),
+		url(https://edmnps.web.dmitcapstone.ca/wp-content/uploads/2021/03/harebell-lg.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	box-shadow: var(--box-shadow);
 }
 
-.blog-content{
-	border: 1px solid aquamarine;
+.inner-hero{
+	width: 120rem;
+	height: 100%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 60% 1fr;
 }
 
-.events{
+.inner-hero h1{
+	align-self: flex-end;
+	grid-column: 1;
+	padding-bottom: var(--h2);
+	color: var(--white);
+	font-size: var(--title);
+	line-height: 1.3;
+	text-shadow: 0.3rem 0.3rem 0.3rem var(--box-shadow);
 }
 
-.events .card{
+
+/* cards
+----------------------------------------------- */
+.card{
 	background-color: var(--light-beige);
-	border-radius: 0.6rem;
 	box-shadow: 0 0 0.5rem 0 var(--box-shadow);
+	border-radius: 0.6rem;
 	display: flex;
+}
+
+.card header img{
+	object-fit: cover; 
+	width: 100%;
+}
+
+.card-wide{
+	max-height: 26rem;
+}
+
+.card-wide header{
+	width: 62%;
+}
+
+.card-wide header img{
+	border-top-left-radius: 0.6rem;
+	border-bottom-left-radius: 0.6rem;
+	max-height: 26rem;
+}
+
+.card-tall{
 	flex-direction: column;
+	height: 100%;
+}
+
+.card-tall header{
+	height: 26rem;
+}
+
+.card-tall header img{
+	border-top-left-radius: 0.6rem;
+	border-top-right-radius: 0.6rem;
+	max-height: 26rem;
+}
+
+.card h4{
+	background-color: var(--light-beige);
+	margin: 1rem 0;
+}
+
+.card a{
+	color: var(--purple);
+	text-decoration: none;
+}
+
+.card a:hover{
+	color: var(--dark-grey);
+	text-decoration: underline;
+}
+
+.card-body{
+	padding: 1.6rem 2.8rem;
+}
+
+.card .card-footer{
+	padding-bottom: 2.2rem;
+	margin-top: auto;
+	align-self: center;
+}
+
+.card .card-footer a{
+	font-family: var(--heading);
+}
+
+
+/* front page
+----------------------------------------------- */
+.notice,
+.events,
+.mission{
+	padding: 2rem 0;
 }
 
 .events .card:first-of-type{
@@ -1188,42 +1297,9 @@ footer{
 	grid-column:3;
 }
 
-.events .card header{
-	height: 20rem;
+.mission{
+	margin-bottom: 4rem;
 }
-
-.events .card h4{
-	background-color: var(--light-beige);
-	margin: 1rem 0;
-}
-
-.events .card-body a:hover,
-.events .card-footer a:hover{
-	color: var(--dark-grey);
-	text-decoration: underline;
-}
-
-.events .card a{
-	color: var(--purple);
-	text-decoration: none;
-}
-
-.events .card-body,
-.events .card-footer{
-	padding: 1.6rem 2rem;
-	padding-bottom: 2.2rem;
-}
-
-.events .card-footer{
-	justify-content: flex-end;
-	align-self: center;
-}
-
-.events .card-footer a{
-	font-family: var(--heading);
-}
-
-
 
 
 /* footer

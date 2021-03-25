@@ -234,7 +234,46 @@ foreach ( $dc_includes as $file ) {
 	require_once $filepath;
 }
 
-  //Register Custom Post type
+
+
+
+ //Register Notices Custom Post type
+ function create_post_type_notices(){
+    // creates label names for the post type in the dashboard the post panel and in the toolbar.
+        $labels = array(
+            'name'                  => __('Notices'),
+            'singular_name'         => __('Notice'), 
+            'add_new'               => 'New Notice', 
+            'add_new_item'          => 'Add New Notice',
+            'edit_item'             => 'Edit Notice',
+            'featured_image'        => _x( 'Notice Post Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
+            'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+            'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+            'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+
+        );
+        // creates the post functionality that you want for a full listing
+        $args = array(
+            'labels'            => $labels,
+            'public'            => true,
+            'has_archive'       => true,
+            'rewrite'           => array('slug' => 'notices'),
+            'menu_position'     => 20,
+            'menu_icon'         => 'dashicons-megaphone',
+            'capability_type'   => 'page',
+            'taxonomies'        => array('category', 'post_tag'),
+            'supports'          => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
+        );
+
+        register_post_type('notices', $args);
+    }
+    // Hooking up our function to theme setup
+    add_action('init', 'create_post_type_notices');
+
+
+
+
+  //Register Events Custom Post type
   function create_post_type_events(){
     // creates label names for the post type in the dashboard the post panel and in the toolbar.
         $labels = array(
@@ -271,3 +310,5 @@ function my_excerpt_length($length){
 	return 26;
 }
 add_filter('excerpt_length', 'my_excerpt_length');
+
+
