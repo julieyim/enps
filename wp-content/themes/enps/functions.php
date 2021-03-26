@@ -22,43 +22,6 @@ if ( ! function_exists( 'enps_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function enps_setup() {
-		/** post formats */
-		/* $post_formats =
-		array(
-			'aside',
-			'image',
-			'gallery',
-			'video',
-			'audio',
-			'link',
-			'quote',
-			'status');
-
-		add_theme_support( 'post-formats', $post_formats);
-
-		/** post thumbnail **/
-		//add_theme_support( 'post-thumbnails' );
-
-		/** title-tag **/
-		//add_theme_support( 'title-tag' );
-
-		/** HTML5 support **/
-		//add_theme_support( 'html5', array( 'comment-list', 'comment-form','search-form', 'gallery', 'caption' ) );
-
-		/** refresh widgest **/
-		//add_theme_support( 'customize-selective-refresh-widgets' );
-
-		/** custom background **/
-		/* $bg_defaults = array(
-			'default-image' => '',
-			'default-preset' => 'default',
-			'default-size' => 'cover',
-			'default-repeat' => 'no-repeat',
-			'default-attachment' => 'scroll',
-		); */
-
-		//add_theme_support( 'custom-background', $bg_defaults ); 
-
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -237,78 +200,180 @@ foreach ( $dc_includes as $file ) {
 
 
 
- //Register Notices Custom Post type
- function create_post_type_notices(){
-    // creates label names for the post type in the dashboard the post panel and in the toolbar.
-        $labels = array(
-            'name'                  => __('Notices'),
-            'singular_name'         => __('Notice'), 
-            'add_new'               => 'New Notice', 
-            'add_new_item'          => 'Add New Notice',
-            'edit_item'             => 'Edit Notice',
-            'featured_image'        => _x( 'Notice Post Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
-            'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-            'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-            'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+//Register Page info Custom Post type
+function create_post_type_page_info(){
+	// creates label names for the post type in the dashboard the post panel and in the toolbar.
+	$labels = array(
+		'name'                  => __('Page Info'),
+		'singular_name'         => __('Page Info'), 
+		'add_new'               => 'New Page Info', 
+		'add_new_item'          => 'Add New Page Info',
+		'edit_item'             => 'Edit Page Info',
+		'featured_image'        => _x( 'Page Info Post Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
 
-        );
-        // creates the post functionality that you want for a full listing
-        $args = array(
-            'labels'            => $labels,
-            'public'            => true,
-            'has_archive'       => true,
-            'rewrite'           => array('slug' => 'notices'),
-            'menu_position'     => 20,
-            'menu_icon'         => 'dashicons-megaphone',
-            'capability_type'   => 'page',
-            'taxonomies'        => array('category', 'post_tag'),
-            'supports'          => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
-        );
+	);
+	// creates the post functionality that you want for a full listing
+	$args = array(
+		'labels'            => $labels,
+		'public'            => true,
+		'has_archive'       => true,
+		'rewrite'           => array('slug' => 'page-info'),
+		'menu_position'     => 20,
+		'menu_icon'         => 'dashicons-editor-alignleft',
+		'capability_type'   => 'post',
+		'taxonomies'        => array('category', 'post_tag'),
+		'supports'          => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
+	);
 
-        register_post_type('notices', $args);
-    }
-    // Hooking up our function to theme setup
-    add_action('init', 'create_post_type_notices');
-
-
+	register_post_type('page-info', $args);
+}
+// Hooking up our function to theme setup
+add_action('init', 'create_post_type_page_info');
 
 
-  //Register Events Custom Post type
-  function create_post_type_events(){
-    // creates label names for the post type in the dashboard the post panel and in the toolbar.
-        $labels = array(
-            'name'                  => __('Events'),
-            'singular_name'         => __('Event'), 
-            'add_new'               => 'New Event', 
-            'add_new_item'          => 'Add New Event',
-            'edit_item'             => 'Edit Event',
-            'featured_image'        => _x( 'Event Post Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
-            'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-            'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-            'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
 
-        );
-        // creates the post functionality that you want for a full listing
-        $args = array(
-            'labels'            => $labels,
-            'public'            => true,
-            'has_archive'       => true,
-            'rewrite'           => array('slug' => 'events'),
-            'menu_position'     => 20,
-            'menu_icon'         => 'dashicons-calendar-alt',
-            'capability_type'   => 'page',
-            'taxonomies'        => array('category', 'post_tag'),
-            'supports'          => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
-        );
+//Register Projects Custom Post type
+function create_post_type_projects(){
+	// creates label names for the post type in the dashboard the post panel and in the toolbar.
+	$labels = array(
+		'name'                  => __('Projects'),
+		'singular_name'         => __('Project'), 
+		'add_new'               => 'New Projects', 
+		'add_new_item'          => 'Add New Projects',
+		'edit_item'             => 'Edit Projects',
+		'featured_image'        => _x( 'Projects Post Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
 
-        register_post_type('events', $args);
-    }
-    // Hooking up our function to theme setup
-    add_action('init', 'create_post_type_events');
+	);
+	// creates the post functionality that you want for a full listing
+	$args = array(
+		'labels'            => $labels,
+		'public'            => true,
+		'has_archive'       => true,
+		'rewrite'           => array('slug' => 'projects'),
+		'menu_position'     => 20,
+		'menu_icon'         => 'dashicons-location-alt',
+		'capability_type'   => 'post',
+		'taxonomies'        => array('category', 'post_tag'),
+		'supports'          => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
+	);
+
+	register_post_type('projects', $args);
+}
+// Hooking up our function to theme setup
+add_action('init', 'create_post_type_projects');
+
+
+
+//Register Notices Custom Post type
+function create_post_type_notices(){
+	// creates label names for the post type in the dashboard the post panel and in the toolbar.
+	$labels = array(
+		'name'                  => __('Notices'),
+		'singular_name'         => __('Notice'), 
+		'add_new'               => 'New Notice', 
+		'add_new_item'          => 'Add New Notice',
+		'edit_item'             => 'Edit Notice',
+		'featured_image'        => _x( 'Notice Post Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+
+	);
+	// creates the post functionality that you want for a full listing
+	$args = array(
+		'labels'            => $labels,
+		'public'            => true,
+		'has_archive'       => true,
+		'rewrite'           => array('slug' => 'notices'),
+		'menu_position'     => 20,
+		'menu_icon'         => 'dashicons-megaphone',
+		'capability_type'   => 'page',
+		'taxonomies'        => array('category', 'post_tag'),
+		'supports'          => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
+	);
+
+	register_post_type('notices', $args);
+}
+// Hooking up our function to theme setup
+add_action('init', 'create_post_type_notices');
+
+
+
+//Register Events Custom Post type
+function create_post_type_events(){
+	// creates label names for the post type in the dashboard the post panel and in the toolbar.
+	$labels = array(
+		'name'                  => __('Events'),
+		'singular_name'         => __('Event'), 
+		'add_new'               => 'New Event', 
+		'add_new_item'          => 'Add New Event',
+		'edit_item'             => 'Edit Event',
+		'featured_image'        => _x( 'Event Post Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+
+	);
+	// creates the post functionality that you want for a full listing
+	$args = array(
+		'labels'            => $labels,
+		'public'            => true,
+		'has_archive'       => true,
+		'rewrite'           => array('slug' => 'events'),
+		'menu_position'     => 22,
+		'menu_icon'         => 'dashicons-calendar-alt',
+		'capability_type'   => 'page',
+		'taxonomies'        => array('category', 'post_tag'),
+		'supports'          => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
+	);
+
+	register_post_type('events', $args);
+}
+// Hooking up our function to theme setup
+add_action('init', 'create_post_type_events');
 
 function my_excerpt_length($length){
 	return 26;
 }
 add_filter('excerpt_length', 'my_excerpt_length');
 
+
+//Register Shop Custom Post type
+function create_post_type_shop(){
+	// creates label names for the post type in the dashboard the post panel and in the toolbar.
+	$labels = array(
+		'name'                  => __('Shop'),
+		'singular_name'         => __('Shop'), 
+		'add_new'               => 'New Shop Item', 
+		'add_new_item'          => 'Add New Shop Item',
+		'edit_item'             => 'Edit Shop Item',
+		'featured_image'        => _x( 'Shop Post Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
+
+	);
+	// creates the post functionality that you want for a full listing
+	$args = array(
+		'labels'            => $labels,
+		'public'            => true,
+		'has_archive'       => true,
+		'rewrite'           => array('slug' => 'shop'),
+		'menu_position'     => 23,
+		'menu_icon'         => 'dashicons-store',
+		'capability_type'   => 'post',
+		'taxonomies'        => array('category', 'post_tag'),
+		'supports'          => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
+	);
+
+	register_post_type('shop', $args);
+}
+// Hooking up our function to theme setup
+add_action('init', 'create_post_type_shop');
 
