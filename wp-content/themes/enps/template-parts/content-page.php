@@ -33,6 +33,23 @@
 					)
 				);
 			?>
+
+			<!-- go to top button -->
+			<div class="gtt-btn">
+				<?php $go_to_top_btn = get_field('go_to_top_btn') ?>
+				<?php 
+					if ($go_to_top_btn):
+						// create variable to store information and to display content to the browser
+						$btn_label = $go_to_top_btn['title'];
+						$btn_url = $go_to_top_btn['url']; ?>
+
+						<!-- display go to top button -->
+						<a href="<?php print_r(esc_url($btn_url)); ?>" class="btn btn-white">
+							<?php print_r(esc_html($btn_label)); ?>
+						</a>
+						<!-- end go to top button -->	
+				<?php endif;?>
+			</div>
 		</div>
 	</div>
 

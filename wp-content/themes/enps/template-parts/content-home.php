@@ -21,6 +21,7 @@
                 // create variable to store information and to display content to the browser
                 $btn_label = $notices_all_btn['title'];
                 $btn_url = $notices_all_btn['url'];
+            endif;
         ?>
         <!-- create a link to display the content -->
         <a href="<?php print_r(esc_url($btn_url)); ?>" class="btn btn-yellow">

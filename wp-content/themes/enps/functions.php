@@ -181,9 +181,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-
-
-
 // with this area you can register a number of files/objects
 $dc_includes = array(
 	'/widgets.php',                         // Register widget area.
@@ -241,10 +238,10 @@ function create_post_type_projects(){
 	$labels = array(
 		'name'                  => __('Projects'),
 		'singular_name'         => __('Project'), 
-		'add_new'               => 'New Projects', 
-		'add_new_item'          => 'Add New Projects',
+		'add_new'               => 'New Project', 
+		'add_new_item'          => 'Add New Project',
 		'edit_item'             => 'Edit Projects',
-		'featured_image'        => _x( 'Projects Post Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
+		'featured_image'        => _x( 'Volunteer Post Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
 		'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
 		'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
 		'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
@@ -255,10 +252,10 @@ function create_post_type_projects(){
 		'labels'            => $labels,
 		'public'            => true,
 		'has_archive'       => true,
-		'rewrite'           => array('slug' => 'projects'),
+		'rewrite'           => array('slug' => 'volunteer'),
 		'menu_position'     => 20,
 		'menu_icon'         => 'dashicons-location-alt',
-		'capability_type'   => 'post',
+		'capability_type'   => 'page',
 		'taxonomies'        => array('category', 'post_tag'),
 		'supports'          => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
 	);

@@ -33,7 +33,7 @@ get_header();
             </div>
         </div>
     </div>
-	<main id="primary" class="container">
+	<main id="primary" class="site-main">
         
 		<?php get_template_part( 'template-parts/content', 'home' ); ?>
 

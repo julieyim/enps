@@ -30,14 +30,14 @@ get_header();
 			<?php
 				$args = array(
 					'post_type' => 'notices',
-					'posts_per_page' => 12,
+					'posts_per_page' => 5,
 				);
-				$the_event_query = new WP_Query ($args);
+				$the_notice_query = new WP_Query ($args);
 			?>
 			<!-- end argument -->
 			<!-- display the customized loop -->
-			<?php if( $the_event_query->have_posts()): ?>
-				<?php while( $the_event_query->have_posts()) :$the_event_query->the_post(); ?>
+			<?php if( $the_notice_query->have_posts()): ?>
+				<?php while( $the_notice_query->have_posts()) :$the_notice_query->the_post(); ?>
 					<!-- display content -->
 					<div class="card card-wide">
 						<header>
@@ -64,6 +64,11 @@ get_header();
 					</div>
 				<?php endwhile; ?>
 
+				<!-- pagination -->
+				<div class="pagination">
+					<p>(pagination)</p>
+				</div>
+
 				<?php wp_reset_postdata(); ?>
 
 				<?php else: ?>
@@ -72,8 +77,7 @@ get_header();
 			<?php endif; ?>
 			<!-- end display customized loop -->
 
-			<!-- pagination -->
-			<div> <p>(pagination)</p> </div>
+			
 		</div>
 		
 

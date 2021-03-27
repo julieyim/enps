@@ -482,6 +482,21 @@ h2{
 	margin-bottom: 1.4rem;
 }
 
+main h4 a{
+	color: var(--purple);
+	text-decoration: underline;
+}
+
+h4 a:hover{
+	color: var(--dark-grey);
+	text-decoration: underline;
+}
+
+a{
+	color: var(--purple);
+	text-decoration: underline;
+}
+
 p {
 	margin-bottom: 1.5;
 	line-height: 1.5;
@@ -1095,6 +1110,10 @@ header .custom-logo-link{
 	margin: 0 auto;
 }
 
+main .inner-container{
+	padding: 3rem 0;
+}
+
 .flex{
 	display: flex;
 	flex-wrap: wrap;
@@ -1199,12 +1218,19 @@ footer{
 	box-shadow: 0 0 0.3rem 0 var(--box-shadow);
 }
 
+.volunteer{
+	background: 
+		linear-gradient(var(--overlay-green), var(--box-shadow)),
+		url(https://edmnps.web.dmitcapstone.ca/wp-content/uploads/2021/03/main-planting-plan.jpg);
+	background-position: 40%;
+}
+
 .inner-hero{
-	width: 120rem;
+	max-width: 120rem;
 	height: 100%;
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: 60% 1fr;
+	grid-template-columns: 60% 30%;
 }
 
 .inner-hero h1{
@@ -1293,6 +1319,7 @@ footer{
 
 .card-wide header{
 	width: 32%;
+	max-height: 30rem;
 }
 
 .card-wide .card-body{
@@ -1346,6 +1373,74 @@ footer{
 	font-family: var(--heading);
 }
 
+
+/* posts
+----------------------------------------------- */
+.post{
+	margin: 2rem 0;
+	padding: 2rem 0;
+	border-top: 1px solid var(--overlay-green);
+}
+
+.post header{
+	width: 100%;
+	background: none;
+	box-shadow: none;
+	display: block;
+	height: 30rem;
+}
+
+.post header img{
+	object-fit: cover; 
+	object-position: center;
+	width: 100%;
+	height: 100%;
+}
+
+.post-body{
+	padding: 0 2rem;
+}
+
+.post-body h4{
+	margin: 2rem 0;
+}
+
+.post-body h5{
+	margin: 1rem 0;
+	font-weight: normal;
+}
+
+@media screen and (min-width:90rem){
+	.post{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+	}
+
+	.post header{
+		display: flex;
+		flex-direction: column-reverse;
+		width: 30%;
+		height: 50rem;
+	}
+
+	.post header img{
+		object-fit: cover; 
+		object-position: center;
+		height: 100%;
+	}
+
+	.post-body{
+		padding-left: 3rem;
+		width: 67%;
+	}
+
+	.post-body h4{
+		margin-top: 0;
+	}
+
+}
+
 /* buttons
 ----------------------------------------------- */
 a.btn,
@@ -1354,6 +1449,7 @@ a.btn,
 	box-shadow: 0 0.1rem 0.3rem 0 var(--box-shadow);
 	border: none;
 	border-radius: 0.3rem;
+	text-decoration: none;
 	display: inline-block;
 	color: var(--dark-grey);
 	font-weight: bold;
@@ -1392,7 +1488,24 @@ a.btn-blue{
 	background-color: var(--blue);
 }
 
-/* contact page
+a.btn-white{
+	color: var(--dark-grey);
+	background-color: var(--white);
+}
+
+a.btn-white:hover{
+	color: var(--dark-grey);
+	background-color: var(--yellow);
+}
+
+
+.gtt-btn{
+	margin-top: 2rem;
+	display: flex;
+	justify-content: flex-end;
+}
+
+/* contact form
 ----------------------------------------------- */
 .wpcf7{
 	padding: 2rem 0;
@@ -1436,8 +1549,6 @@ a.btn-blue{
 	margin-right: 1rem;
 	margin-bottom: 1.4rem;
 }
-
-
 
 /* footer
 ----------------------------------------------- */
