@@ -13,20 +13,23 @@
 <div class="inner-container">
     <!-- recent notices -->
     <div class="notice">
-        <h2>Recent Notice</h2>
-        <!-- view all btn -->
-        <?php $tutorial_all_btn = get_field('view_all_btn') ?>
-        <?php 
-            if ($tutorial_all_btn):
-                // create variable to store information and to display content to the browser
-                $btn_label = $notices_all_btn['title'];
-                $btn_url = $notices_all_btn['url'];
-            endif;
-        ?>
-        <!-- create a link to display the content -->
-        <a href="<?php print_r(esc_url($btn_url)); ?>" class="btn btn-yellow">
-            <?php print_r(esc_html($btn_label)); ?>
-        </a>
+        <div class="flex">
+            <h2>Recent Notice</h2>
+            <!-- view all btn -->
+            <?php $notices_all_btn = get_field('view_all_btn'); ?>
+            <?php 
+                if ($notices_all_btn):
+                    // create variable to store information and to display content to the browser
+                    $btn_label = $notices_all_btn['title'];
+                    $btn_url = $notices_all_btn['url']; ?>
+
+                    <!-- create a link to display the content -->
+                    <a href="<?php print_r(esc_url($btn_url)); ?>" class="btn btn-yellow">
+                        <?php print_r(esc_html($btn_label)); ?>
+                    </a>
+            <?php endif; ?>
+            
+        </div>
         
         <!-- argument for displaying the customized loop -->
         <?php

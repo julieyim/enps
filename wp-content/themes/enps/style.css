@@ -1067,14 +1067,14 @@ header .custom-logo-link{
 	height: auto;
 }
 
-@media screen and (min-width:40rem){
+@media screen and (min-width:400px){
 	header .custom-logo-link{
 		width: 30%;
 		min-width: 16rem;
 	}
 }
 
-@media screen and (min-width:80rem){
+@media screen and (min-width:800px){
 	header .custom-logo-link,
 	footer .custom-logo-link{
 		transition: all 0.3s ease-in-out;
@@ -1091,7 +1091,7 @@ header .custom-logo-link{
 	}
 }
 
-@media screen and (min-width:100rem){
+@media screen and (min-width:1000px){
 	header{
 		display: flex;
 	}
@@ -1106,12 +1106,20 @@ header .custom-logo-link{
 }
 
 .inner-container{
-	max-width: 120rem;
 	margin: 0 auto;
+	padding: 0 2rem;
 }
 
 main .inner-container{
-	padding: 3rem 0;
+	padding: 3rem 2rem;
+}
+
+@media screen and (min-width:1200px){
+	.inner-container,
+	main .inner-container{
+		max-width: 120rem;
+		padding: 0;
+	}
 }
 
 .flex{
@@ -1120,10 +1128,25 @@ main .inner-container{
 }
 
 .grid-3{
-	display: grid;
-	grid-template-columns: repeat(3,1fr);
-	grid-gap: 2.2rem;
 	width: 100%;
+}
+
+@media screen and (min-width:690px){
+	.grid-3{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 100%;
+	}
+}
+
+@media screen and (min-width:1100px){
+	.grid-3{
+		display: grid;
+		grid-template-columns: repeat(3,1fr);
+		grid-gap: 2.2rem;
+		width: 100%;
+	}
 }
 
 .grid-2{
@@ -1225,6 +1248,13 @@ footer{
 	background-position: 40%;
 }
 
+.about-us{
+	background: 
+		linear-gradient(var(--overlay-green), var(--box-shadow)),
+		url(https://edmnps.web.dmitcapstone.ca/wp-content/uploads/2021/03/sitting-outside.jpeg);
+	background-position: 40%;
+}
+
 .inner-hero{
 	max-width: 120rem;
 	height: 100%;
@@ -1310,6 +1340,16 @@ footer{
 	margin-bottom: 2rem;
 }
 
+.notice .card{
+	margin-top: 2rem;
+}
+
+@media screen and (min-width:532px){
+	.notice .card{
+		margin-top: 0;
+	}
+}
+
 .card header img{
 	object-fit: cover; 
 	object-position: center;
@@ -1317,24 +1357,86 @@ footer{
 	height: 100%;
 }
 
-.card-wide header{
-	width: 32%;
-	max-height: 30rem;
-}
-
-.card-wide .card-body{
-	width: 68%;
+.card-wide{
+	flex-direction: column;
+	height: 100%;
 }
 
 .card-wide header,
 .card-wide header img{
 	border-top-left-radius: 0.6rem;
-	border-bottom-left-radius: 0.6rem;
+	border-top-right-radius: 0.6rem;
+	height: 26rem;
+}
+
+.mission .card-wide{
+	height: 100%;
+}
+
+.mission .card-wide .btn{
+	margin-bottom: 1rem;
+}
+
+@media screen and (min-width:720px){
+	.card-wide{
+		flex-direction: row;
+	}
+	
+	.card-wide header{
+		width: 32%;
+		height: auto;
+	}
+	
+	.card-wide .card-body{
+		width: 68%;
+	}
+	
+	.card-wide header,
+	.card-wide header img{
+		border-top-left-radius: 0.6rem;
+		border-bottom-left-radius: 0.6rem;
+		border-top-right-radius: 0;
+	}
+
+	.card-wide header img{
+		min-height: 100%;
+	}
+	
+	.mission .card-body .btn{
+		margin-right: 1rem;
+		margin-bottom: 1.4rem;
+	}
 }
 
 .card-tall{
 	flex-direction: column;
 	height: 100%;
+}
+
+@media screen and (min-width:690px){
+	.card-tall{
+		width: 49%;
+		height: 82rem;
+	}
+}
+
+@media screen and (min-width:700px){
+	.card-tall{
+		height: 80rem;
+	}
+}
+
+@media screen and (min-width:760px){
+	.card-tall{
+		height: 74rem;
+	}
+}
+
+@media screen and (min-width:1100px){
+	.card-tall{
+		width: 100%;
+		height: 100%;
+	}
 }
 
 .card-tall header,
@@ -1410,7 +1512,13 @@ footer{
 	font-weight: normal;
 }
 
-@media screen and (min-width:90rem){
+@media screen and (min-width:900px){
+	.post header{
+		padding: 0 2rem;
+	}
+}
+
+@media screen and (min-width:1200px){
 	.post{
 		display: flex;
 		flex-wrap: wrap;
@@ -1431,15 +1539,14 @@ footer{
 	}
 
 	.post-body{
-		padding-left: 3rem;
 		width: 67%;
 	}
 
 	.post-body h4{
 		margin-top: 0;
 	}
-
 }
+
 
 /* buttons
 ----------------------------------------------- */
@@ -1498,12 +1605,39 @@ a.btn-white:hover{
 	background-color: var(--yellow);
 }
 
-
 .gtt-btn{
 	margin-top: 2rem;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 }
+
+@media screen and (min-width:900px){
+	.gtt-btn{
+		justify-content: flex-end;
+	}
+}
+
+/* notices
+----------------------------------------------- */
+article.notices header{
+	width: 100%;
+	height: 30rem;
+	border-top-left-radius: 0.6rem;
+	border-top-right-radius: 0.6rem;
+}
+
+article.notices header img{
+	object-fit: cover; 
+	object-position: center;
+	width: 100%;
+	height: 100%;
+	border-top-left-radius: 0.6rem;
+	border-top-right-radius: 0.6rem;
+}
+
+
+
+
 
 /* contact form
 ----------------------------------------------- */
@@ -1524,6 +1658,7 @@ a.btn-white:hover{
 	padding: 2rem 0;
 }
 
+.notice .flex,
 .events .flex{
 	align-items: center;
 	justify-content: space-between;
@@ -1545,10 +1680,7 @@ a.btn-white:hover{
 	margin-bottom: 4rem;
 }
 
-.mission .card-body .btn{
-	margin-right: 1rem;
-	margin-bottom: 1.4rem;
-}
+
 
 /* footer
 ----------------------------------------------- */
