@@ -1636,9 +1636,6 @@ article.notices header img{
 }
 
 
-
-
-
 /* contact form
 ----------------------------------------------- */
 .wpcf7{
@@ -1680,6 +1677,33 @@ article.notices header img{
 	margin-bottom: 4rem;
 }
 
+/* articles & guides
+----------------------------------------------- */
+#post-28 .inner-container p a{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: space-between;
+	border-radius: 0.3rem;
+	box-shadow: 0 0 0.3rem 0 var(--box-shadow);
+	background-color: var(--white);
+	padding: 1rem 2rem;
+	text-decoration: none;
+}
+
+#post-28 .inner-container svg{
+	width: 2rem;
+	margin-top: 1rem;
+}
+
+#post-28 .inner-container p a::after{
+	content: '';
+	margin-top: 1rem;
+	background: url(img/file-pdf-solid.svg);
+	background-repeat: no-repeat;
+	width: 2.4rem;
+	height: 3.4rem;
+}
 
 
 /* footer
