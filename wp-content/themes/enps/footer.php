@@ -54,17 +54,15 @@
 				</nav>
 
 				<div class="newsletter">
-					<form>
-						<label>Sign up to the Wildflower Newsletter</label>
-						<div class="sign-up">
-							<input type="text">
-							<button>Sign Up</button>
-						</div>
-					</form>
+					<?php if(is_active_sidebar( 'footer-col-three')): ?>
+						<?php dynamic_sidebar( 'footer-col-three' ); ?>
+					<?php endif; ?>
 				</div>
 
 				<div class="social">
-					
+					<?php if(is_active_sidebar( 'footer-col-four')): ?>
+						<?php dynamic_sidebar( 'footer-col-four' ); ?>
+					<?php endif; ?>
 				</div>
 			</div>
 			<div class="site-info">

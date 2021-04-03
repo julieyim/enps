@@ -82,25 +82,36 @@ if ( ! function_exists( 'enps_widget_areas' ) ) {
 
 	/** Initializes themes widgets.*/
 	function enps_widget_areas() {
-
-        //FOOTER 1
+        //FRONT-PAGE NEWSLETTER SIGN UP
+        register_sidebar(
+            array(
+                'name'          => __( 'Front page newsletter', 'enps' ),
+                'id'            => 'front-page-newsletter',
+                'description'   => __( 'Front page newsletter widget area', 'enps' ),
+                'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</aside>',
+                'before_title'  => '<h3 class="widget-title">',
+                'after_title'   => '</h3>',
+            )
+        );
+        //FOOTER 3
 		register_sidebar(
 			array(
-				'name'          => __( 'Footer 1', 'enps' ),
-				'id'            => 'footer-col-one',
-				'description'   => __( 'Left Footer widget area', 'enps' ),
+				'name'          => __( 'Footer 3', 'enps' ),
+				'id'            => 'footer-col-three',
+				'description'   => __( 'Footer Three widget area', 'enps' ),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h3 class="widget-title">',
 				'after_title'   => '</h3>',
 			)
         );
-        //FOOTER 2
+        //FOOTER 4
         register_sidebar(
 			array(
-				'name'          => __( 'Footer 2', 'enps' ),
-				'id'            => 'footer-col-two',
-				'description'   => __( 'Left Footer widget area', 'enps' ),
+				'name'          => __( 'Footer 4', 'enps' ),
+				'id'            => 'footer-col-four',
+				'description'   => __( 'Footer Four widget area', 'enps' ),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h3 class="widget-title">',

@@ -68,7 +68,7 @@ get_header();
 
 			<!-- go to top button -->
 			<div class="gtt-btn">
-				<?php $go_to_top_btn = get_field('go_to_top_btn') ?>
+				<?php //$go_to_top_btn = get_field('go_to_top_btn'); ?>
 				<?php 
 					if ($go_to_top_btn):
 						// create variable to store information and to display content to the browser
@@ -83,8 +83,6 @@ get_header();
 				<!-- end go to top button -->
 			</div>
 		</div>
-		
 	</main><!-- #main -->
-
 <?php
 get_footer();

@@ -1067,6 +1067,10 @@ header .custom-logo-link{
 	height: auto;
 }
 
+footer .custom-logo-link img{
+	width: 20rem;
+}
+
 @media screen and (min-width:400px){
 	header .custom-logo-link{
 		width: 30%;
@@ -1248,11 +1252,61 @@ footer{
 	background-position: 40%;
 }
 
-.about-us{
+#post-32 .hero{
+	background: 
+		linear-gradient(var(--overlay-green), var(--box-shadow)),
+		url(https://edmnps.web.dmitcapstone.ca/wp-content/uploads/2021/03/main-planting-plan.jpg);
+	background-position: 100% 36%;
+	background-size: cover;
+}
+
+#post-24 .hero{
 	background: 
 		linear-gradient(var(--overlay-green), var(--box-shadow)),
 		url(https://edmnps.web.dmitcapstone.ca/wp-content/uploads/2021/03/sitting-outside.jpeg);
 	background-position: 40%;
+	background-size: cover;
+}
+
+#post-22 .hero{
+	background: 
+		linear-gradient(var(--overlay-green), var(--box-shadow)),
+		url(https://edmnps.web.dmitcapstone.ca/wp-content/uploads/2021/03/group-photo.jpeg);
+	background-position: 100% 36%;
+	background-size: cover;
+}
+
+#post-26 .hero{
+	background: 
+		linear-gradient(var(--overlay-green), var(--box-shadow)),
+		url(https://edmnps.web.dmitcapstone.ca/wp-content/uploads/2021/03/nodding-onion.jpeg);
+	background-position: 100% 36%;
+	background-size: cover;
+}
+
+#post-28 .hero{
+	background: 
+		linear-gradient(var(--overlay-green), var(--box-shadow)),
+		url(https://edmnps.web.dmitcapstone.ca/wp-content/uploads/2021/03/nodding-onion.jpeg);
+	background-position: 100% 36%;
+	background-size: cover;
+}
+
+#post-30 .hero{
+	background: 
+		linear-gradient(var(--overlay-green), var(--box-shadow)),
+		url(https://edmnps.web.dmitcapstone.ca/wp-content/uploads/2021/03/nodding-onion.jpeg);
+	background-position: 100% 36%;
+	background-size: cover;
+}
+
+
+#post-36 .hero{
+	background: 
+		linear-gradient(var(--overlay-green), var(--box-shadow)),
+		url(https://edmnps.web.dmitcapstone.ca/wp-content/uploads/2021/04/bouteloua-gracilis.jpg);
+	background-position: 100% 36%;
+	background-size: cover;
 }
 
 .inner-hero{
@@ -1381,23 +1435,19 @@ footer{
 	.card-wide{
 		flex-direction: row;
 	}
-	
 	.card-wide header{
 		width: 32%;
 		height: auto;
 	}
-	
 	.card-wide .card-body{
 		width: 68%;
 	}
-	
 	.card-wide header,
 	.card-wide header img{
 		border-top-left-radius: 0.6rem;
 		border-bottom-left-radius: 0.6rem;
 		border-top-right-radius: 0;
 	}
-
 	.card-wide header img{
 		min-height: 100%;
 	}
@@ -1649,6 +1699,23 @@ article.notices header img{
 
 /* front page
 ----------------------------------------------- */
+.cta-banner .newsletter{
+	max-width: 100%;
+}
+
+.cta-banner .newsletter aside{
+	margin-bottom: 0;
+}
+
+.newsletter input[type="text"],
+.newsletter input[type="email"]{
+	max-width: 100%;
+}
+
+.cta-banner .newsletter .wpcf7-submit{
+	margin-top: 2rem;
+}
+
 .notice,
 .events,
 .mission{
@@ -1679,6 +1746,14 @@ article.notices header img{
 
 /* articles & guides
 ----------------------------------------------- */
+#post-14 .inner-container .flex p,
+#post-32 .inner-container .flex p,
+#post-28 .inner-container .flex p{
+	width: 100%;
+}
+
+#post-14 .inner-container p a,
+#post-32 .inner-container p a,
 #post-28 .inner-container p a{
 	display: flex;
 	flex-direction: column;
@@ -1687,29 +1762,85 @@ article.notices header img{
 	border-radius: 0.3rem;
 	box-shadow: 0 0 0.3rem 0 var(--box-shadow);
 	background-color: var(--white);
+	color: var(--dark-grey);
 	padding: 1rem 2rem;
 	text-decoration: none;
+	margin: 0 0.6rem;
 }
 
-#post-28 .inner-container svg{
-	width: 2rem;
-	margin-top: 1rem;
+#post-14 .inner-container p a:hover,
+#post-32 .inner-container p a:hover,
+#post-28 .inner-container p a:hover{
+	text-decoration: underline;
+	background-color: var(--light-beige);
 }
 
+#post-14 .inner-container p a::after,
+#post-32 .inner-container p a::after,
 #post-28 .inner-container p a::after{
 	content: '';
 	margin-top: 1rem;
 	background: url(img/file-pdf-solid.svg);
 	background-repeat: no-repeat;
-	width: 2.4rem;
-	height: 3.4rem;
+	background-position: left bottom;
+	background-size: auto 70%;
+	width: 100%;
+	height: 4.2rem;
+	border-top: 1px solid var(--overlay-green);
 }
 
+@media screen and (min-width:540px){
+	#post-14 .inner-container .flex p,
+	#post-32 .inner-container .flex p,
+	#post-28 .inner-container .flex p{
+		width: 48%;
+	}
+	#post-14 .inner-container p a,
+	#post-32 .inner-container p a,
+	#post-28 .inner-container p a{
+		height: 16rem;
+	}
+}
+
+@media screen and (min-width:710px){
+	#post-14 .inner-container .flex p,
+	#post-32 .inner-container .flex p,
+	#post-28 .inner-container .flex p{
+		width: 33%;
+	}
+}
+
+
+@media screen and (min-width:970px){
+	#post-14 .inner-container .flex p,
+	#post-32 .inner-container .flex p,
+	#post-28 .inner-container .flex p{
+		width: 24.5%;
+	}
+}
+
+@media screen and (min-width:1160px){
+	#post-14 .inner-container .flex p,
+	#post-32 .inner-container .flex p,
+	#post-28 .inner-container .flex p{
+		width: 20%;
+	}
+}
+
+/* gallery
+----------------------------------------------- */
+.portfolio-wraper{
+	margin-top: 2rem;
+}
+
+.portfolio-wraper .filter-wrap .filtr-search{
+	width: 34rem !important;
+}
 
 /* footer
 ----------------------------------------------- */
 footer{
-	padding: 6rem 0;
+	padding: 4rem 2rem;
 }
 
 footer .container{
@@ -1718,23 +1849,49 @@ footer .container{
 
 footer .flex{
 	width: 100%;
+	justify-content: space-between;
 }
 
-footer nav{
-	border: 1px solid tomato;
-	width: 50%;
-	display: flex;
+.footer-nav{
+	width: 100%;
+	padding: 2rem 0;
+}
+
+@media screen and (min-width:1400px){
+	.footer-nav{
+		width: 44%;
+		padding: 0;
+	}
 }
 
 .footer-nav ul{
+	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	max-height: 22rem;
+}
+
+@media screen and (min-width:600px){
+	.footer-nav ul{
+		max-height: 38rem;
+	}
+}
+
+@media screen and (min-width:730px){
+	.footer-nav ul{
+		max-height: 30rem;
+	}
+}
+
+@media screen and (min-width:900px){
+	.footer-nav ul{
+		max-height: 22rem;
+	}
 }
 
 .footer-nav li{
-	font-size: 1.6rem;
+	font-size: 1.8rem;
 	padding: 0.6rem 0;
+	margin-right: 4rem;
 }
 
 .footer-nav li a{
@@ -1748,21 +1905,63 @@ footer nav{
 	text-decoration: underline;
 }
 
-footer .container .newsletter{
+footer .newsletter{
+	padding: 2rem 0;
+	width: 100%;
 }
 
-footer .newsletter form{
-	display: flex;
-	flex-direction: column;
+@media screen and (min-width:1400px){
+	footer .newsletter{
+		width: 30%;
+		padding-top: 0;
+	}
 }
 
-footer .newsletter form .sign-up{
-	display: flex;
+footer .newsletter h3{
+	margin: 1rem 0;
+	font-size: var(--h4);
 }
 
-footer .site-info{
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-end;
-	padding-top: 1.6rem;
+@media screen and (min-width:1400px){
+	footer .newsletter h3{
+		margin-top: 0;
+	}
+}
+
+footer .newsletter .wpcf7{
+	padding: 0;
+}
+
+
+
+footer .social{
+	padding-left: 2rem;
+}
+
+footer .social img{
+	width: 4rem;
+	height: 4rem;
+	filter: invert(0.4);
+}
+
+footer .social a{
+	transition: all 0.3s ease-in-out;
+}
+
+footer .social a:hover{
+	opacity: 80%;
+	transition: all 0.3s ease-in-out;
+}
+
+footer .social p{
+	margin: 0;
+}
+
+@media screen and (min-width:900px){
+	footer .site-info{
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		padding-top: 1.6rem;
+	}
 }

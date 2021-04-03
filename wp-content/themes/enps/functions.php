@@ -195,43 +195,6 @@ foreach ( $dc_includes as $file ) {
 }
 
 
-
-
-//Register Page info Custom Post type
-function create_post_type_page_info(){
-	// creates label names for the post type in the dashboard the post panel and in the toolbar.
-	$labels = array(
-		'name'                  => __('Page Info'),
-		'singular_name'         => __('Page Info'), 
-		'add_new'               => 'New Page Info', 
-		'add_new_item'          => 'Add New Page Info',
-		'edit_item'             => 'Edit Page Info',
-		'featured_image'        => _x( 'Page Info Post Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
-		'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-		'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-		'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-
-	);
-	// creates the post functionality that you want for a full listing
-	$args = array(
-		'labels'            => $labels,
-		'public'            => true,
-		'has_archive'       => true,
-		'rewrite'           => array('slug' => 'page-info'),
-		'menu_position'     => 20,
-		'menu_icon'         => 'dashicons-editor-alignleft',
-		'capability_type'   => 'post',
-		'taxonomies'        => array('category', 'post_tag'),
-		'supports'          => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
-	);
-
-	register_post_type('page-info', $args);
-}
-// Hooking up our function to theme setup
-add_action('init', 'create_post_type_page_info');
-
-
-
 //Register Projects Custom Post type
 function create_post_type_projects(){
 	// creates label names for the post type in the dashboard the post panel and in the toolbar.
@@ -252,7 +215,7 @@ function create_post_type_projects(){
 		'labels'            => $labels,
 		'public'            => true,
 		'has_archive'       => true,
-		'rewrite'           => array('slug' => 'volunteer'),
+		'rewrite'           => array('slug' => 'projects'),
 		'menu_position'     => 20,
 		'menu_icon'         => 'dashicons-location-alt',
 		'capability_type'   => 'page',

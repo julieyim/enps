@@ -27,9 +27,10 @@ get_header();
                 <h4>Join Our Wildflower Newsletter</h4>
                 <p>Stay in touch to know our latest events, projects, and news with the ENPS!</p>
             </div>
-            <div class="sign-up">
-                <input type="text">
-                <button>Join</button>
+            <div class="newsletter">
+                <?php if(is_active_sidebar( 'front-page-newsletter')): ?>
+                    <?php dynamic_sidebar( 'front-page-newsletter' ); ?>
+                <?php endif; ?>
             </div>
         </div>
     </div>
