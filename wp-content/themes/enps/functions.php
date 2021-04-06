@@ -302,38 +302,3 @@ function my_excerpt_length($length){
 	return 26;
 }
 add_filter('excerpt_length', 'my_excerpt_length');
-
-
-//Register Shop Custom Post type
-function create_post_type_shop(){
-	// creates label names for the post type in the dashboard the post panel and in the toolbar.
-	$labels = array(
-		'name'                  => __('Shop'),
-		'singular_name'         => __('Shop'), 
-		'add_new'               => 'New Shop Item', 
-		'add_new_item'          => 'Add New Shop Item',
-		'edit_item'             => 'Edit Shop Item',
-		'featured_image'        => _x( 'Shop Post Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
-		'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-		'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-		'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-
-	);
-	// creates the post functionality that you want for a full listing
-	$args = array(
-		'labels'            => $labels,
-		'public'            => true,
-		'has_archive'       => true,
-		'rewrite'           => array('slug' => 'shop'),
-		'menu_position'     => 23,
-		'menu_icon'         => 'dashicons-store',
-		'capability_type'   => 'post',
-		'taxonomies'        => array('category', 'post_tag'),
-		'supports'          => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
-	);
-
-	register_post_type('shop', $args);
-}
-// Hooking up our function to theme setup
-add_action('init', 'create_post_type_shop');
-

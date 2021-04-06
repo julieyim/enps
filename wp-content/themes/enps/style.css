@@ -1716,6 +1716,56 @@ article.notices header img{
 	margin-top: 2rem;
 }
 
+@media screen and (min-width:500px){
+	.cta-banner .newsletter form{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.cta-banner .newsletter form p{
+		width: 49%;
+	}
+	.cta-banner .newsletter form p:last-of-type{
+		width: 100%;
+	}
+}
+
+@media screen and (min-width:730px){
+	.cta-banner .flex{
+		flex-direction: row;
+		width: 100%;
+	}
+	.cta-banner .newsletter form p{
+		width: 100%;
+	}
+	.cta-banner .inner-container>div,
+	.cta-banner .newsletter{
+		width: 46%;
+	}
+}
+
+@media screen and (min-width:1140px){
+	.cta-banner .newsletter form{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.cta-banner .newsletter form p,
+	.cta-banner .newsletter form p:last-of-type{
+		width: 32%;
+	}
+	.wpcf7 .ajax-loader{
+		height: 0;
+	}
+
+	.cta-banner .newsletter form p:last-of-type{
+		display: flex;
+		align-self: flex-end;
+	}
+}
+
 .notice,
 .events,
 .mission{
@@ -1836,6 +1886,42 @@ article.notices header img{
 .portfolio-wraper .filter-wrap .filtr-search{
 	width: 34rem !important;
 }
+
+/* shop
+----------------------------------------------- */
+.woocommerce .products ul{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.woocommerce ul.products[class*=columns-] li.product{
+	width: 100%;
+}
+
+@media screen and (min-width:590px){
+	.woocommerce ul.products[class*=columns-] li.product{
+		width: 49%;
+	}
+}
+
+@media screen and (min-width:770px){
+	.woocommerce ul.products[class*=columns-] li.product{
+		width: 28%;
+	}
+}
+
+@media screen and (min-width:870px){
+	.woocommerce ul.products[class*=columns-] li.product{
+		width: 29%;
+	}
+}
+
+@media screen and (min-width:1200px){
+	.inner-container .woocommerce{
+		padding: 2rem 0;
+	}
+}
+
 
 /* footer
 ----------------------------------------------- */
