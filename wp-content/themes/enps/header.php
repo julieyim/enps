@@ -28,28 +28,27 @@
 
 	<header id="masthead" class="site-header">
 		<div class="container">
-			<div class="site-branding">
-				<?php
-				the_custom_logo();
-				if ( is_front_page() && is_home() ) :
-					?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php
-				else :
-					?>
-					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-					<?php
-				endif;
-				$enps_description = get_bloginfo( 'description', 'display' );
-				if ( $enps_description || is_customize_preview() ) :
-					?>
-					<p class="site-description"><?php echo $enps_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-				<?php endif; ?>
-			</div><!-- .site-branding -->
-
+			<div class="flex">
+				<div class="logo">
+					<?php if ( ! has_custom_logo() ) { ?>
+						<?php if ( is_front_page() && is_home() ) : ?>
+						<!-- if your page is set to front-page or blog display the site title (appearance > customize) -->
+						<a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
+						<?php else : ?>
+						<!-- if your page is not set to front-page or blog display thesite title (appearance > customize) -->
+						<a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>"itemprop="url"><?php bloginfo( 'name' ); ?></a>
+					<?php endif;
+					} 
+					else{
+						the_custom_logo();
+					}?>
+				</div>
+				<div class="toggle-icon">
+                    <svg svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M442 114H6a6 6 0 0 1-6-6V84a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6zm0 160H6a6 6 0 0 1-6-6v-24a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6zm0 160H6a6 6 0 0 1-6-6v-24a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6z"></path></svg>
+                </div>
+			</div>
 			<div class="top-nav">
-				<nav id="site-navigation" class="main-navigation main-nav">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'enps' ); ?></button>
+				<nav id="site-navigation" class="main-nav">
 					<?php
 					wp_nav_menu(
 							array(
@@ -60,8 +59,7 @@
 						);
 					?>
 				</nav><!-- #site-navigation -->
-
-				<nav class="main-navigation sub-nav">
+				<nav class="sub-nav">
 					<?php
 						wp_nav_menu(
 							array(
