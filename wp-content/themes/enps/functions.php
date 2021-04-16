@@ -300,3 +300,96 @@ function my_excerpt_length($length){
 	return 26;
 }
 add_filter('excerpt_length', 'my_excerpt_length');
+
+
+
+/* page pagination */
+function page_pagination(){
+	global $wp_query;
+
+	$total_pages = $wp_query->max_num_pages;
+
+	if($total_pages > 1){
+		$current_page = max(1, get_query_var('paged'));
+		echo paginate_links(array(
+			'base' => get_pagenum_link(1) . '%_%',
+			'format' => '/page/%#%',
+			'current' => $current_page,
+			'total' => $total_pages,
+			'prev_text' => 'Prev',
+			'next_text' => 'Next',
+		));
+	}
+}
+
+
+
+/* post pagination (single posts) */
+function post_pagination() {
+	global $wp_query;
+	?>
+
+	<nav class="pagination" role="navigation">
+		<ul>
+			<li class="prev-post"><?php previous_post_link( '%link', '&larr; Previous Notice' ); ?></li>
+			<li class="next-post"><?php next_post_link( '%link', 'Next Notice &rarr;' ); ?></li>
+		</ul>
+	</nav>
+
+	<?php
+}
+
+
+
+/* cpt pagination */
+  /**
+    * Display navigation to next/previous set of posts when applicable.
+    */
+
+    function cpt_pagination($max_num_pages = 0) {
+		// Don't print empty markup if there's only one page.
+		
+		if ( $GLOBALS['wp_query']->max_num_pages < 2 && $max_num_pages < 2 ) {
+			return;
+		}
+	
+		// Setting up default values based on the current URL
+		$paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
+		$pagenum_link = html_entity_decode( get_pagenum_link() );
+		$query_args   = array();
+		$url_parts    = explode( '?', $pagenum_link );
+	
+		if ( isset( $url_parts[1] ) ) {
+			wp_parse_str( $url_parts[1], $query_args );
+		}
+	
+		$pagenum_link = remove_query_arg( array_keys( $query_args ), $pagenum_link );
+		$pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
+	
+		// URL base depends on permalink settings.
+		$format  = $GLOBALS['wp_rewrite']->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
+		$format .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'page/%#%', 'paged' ) : '?paged=%#%';
+		
+		// Set up paginated links.
+		$links = paginate_links( array(
+			'base'     => $pagenum_link,
+			'format'   => $format,
+			'total'    => $max_num_pages !== 0 ? $max_num_pages : $GLOBALS['wp_query']->max_num_pages,
+			'current'  => $paged,
+			'mid_size' => 2,
+			'add_args' => array_map( 'urlencode', $query_args ),
+			'prev_text' => '&larr; Previous',
+			'next_text' => 'Next &rarr;',
+		) );
+	
+		if ( $links ) :
+	
+		?>
+		<nav class="navigation paging-navigation" role="navigation">
+			<div class="pagination loop-pagination">
+				<?php echo $links; ?>
+			</div><!-- .pagination -->
+		</nav><!-- .navigation -->
+
+	<?php endif;
+}

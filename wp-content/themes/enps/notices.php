@@ -28,9 +28,13 @@ get_header();
 
 			<!-- argument for displaying the customized loop -->
 			<?php
+				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
 				$args = array(
 					'post_type' => 'notices',
-					'posts_per_page' => 5,
+					'posts_per_page' => 4,
+					'paged' => $paged,
+					'orderby' => 'date',
 				);
 				$the_notice_query = new WP_Query ($args);
 			?>
@@ -65,23 +69,14 @@ get_header();
 				<?php endwhile; ?>
 
 				<!-- pagination -->
-				<div class="pagination">
-					<p>(pagination)</p>
-				</div>
-
-				<?php wp_reset_postdata(); ?>
+				<?php cpt_pagination($the_notice_query->max_num_pages); ?>
 
 				<?php else: ?>
 				<p><?php _e('Sorry, no post matched your criteria.'); ?></p>
 
 			<?php endif; ?>
 			<!-- end display customized loop -->
-
-			
 		</div>
-		
-
 	</main><!-- #main -->
-
 <?php
 get_footer();
