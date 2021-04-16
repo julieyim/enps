@@ -152,6 +152,8 @@
         </div> <!-- end grid-3 -->
     </div> <!-- end events-->
 
+    <!-- events plugin -->
+
     <!-- mission statement -->
     <div class="mission">
         <h2>Mission Statement</h2>

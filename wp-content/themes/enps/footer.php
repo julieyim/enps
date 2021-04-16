@@ -40,25 +40,27 @@
 						<p class="site-description"><?php echo $enps_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 					<?php endif; ?>
 				</div>
-				
-				<nav class="main-navigation footer-nav">
-					<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'footer-nav',
-								'menu_class' => 'footer-nav',
-								'menu_id' => 'footer-nav',
-							)
-						);
-					?>
-				</nav>
 
-				<div class="newsletter">
-					<?php if(is_active_sidebar( 'footer-col-three')): ?>
-						<?php dynamic_sidebar( 'footer-col-three' ); ?>
-					<?php endif; ?>
+				<div class="flex">
+					<nav class="main-navigation footer-nav">
+						<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'footer-nav',
+									'menu_class' => 'footer-nav',
+									'menu_id' => 'footer-nav',
+								)
+							);
+						?>
+					</nav>
+
+					<div class="newsletter">
+						<?php if(is_active_sidebar( 'footer-col-three')): ?>
+							<?php dynamic_sidebar( 'footer-col-three' ); ?>
+						<?php endif; ?>
+					</div>
 				</div>
-
+				
 				<div class="social">
 					<?php if(is_active_sidebar( 'footer-col-four')): ?>
 						<?php dynamic_sidebar( 'footer-col-four' ); ?>

@@ -393,3 +393,14 @@ function post_pagination() {
 
 	<?php endif;
 }
+
+
+/**
+ * Woocommerce - Change number or products per row to 4
+ */
+/* add_filter('loop_shop_columns', 'loop_columns', 999);
+if (!function_exists('loop_columns')) {
+	function loop_columns() {
+		return 4; // 4 products per row
+	}
+} */

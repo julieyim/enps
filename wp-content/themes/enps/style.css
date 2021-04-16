@@ -1091,7 +1091,7 @@ footer .custom-logo-link img{
 	}
 
 	footer .custom-logo-link{
-		width: 60%;
+		width: 70%;
 	}
 }
 
@@ -1317,12 +1317,6 @@ footer{
 
 	.menu-item-has-children{
 		position: relative;
-	}
-
-	.menu-item-has-children > a:after{
-		content: '▼';
-		font-size: 2.4rem;
-		margin-left: 0.4rem;
 	}
 
 	.main-nav li ul.sub-menu{
@@ -1933,9 +1927,18 @@ article.notices header img{
 	padding: 0.4rem 0.8rem;
 }
 
-/* front page
+
+/* banner newsletter button
 ----------------------------------------------- */
-.cta-banner .newsletter{
+.newsletter .btn{
+	margin-top: 2rem;
+}
+
+
+
+/* banner newsletter form
+----------------------------------------------- */
+/* .cta-banner .newsletter{
 	max-width: 100%;
 }
 
@@ -2000,6 +2003,31 @@ article.notices header img{
 		display: flex;
 		align-self: flex-end;
 	}
+} */
+
+
+/* mailchimp custom code styling
+----------------------------------------------- */
+.newsletter #mc_embed_signup{
+	margin-top: 2rem;
+	width: 100%;
+}
+
+.newsletter #mc_embed_signup label,
+.newsletter #mc_embed_signup .indicates-required{
+	font-family: var(--body);
+}
+
+.newsletter #mc_embed_signup .button{
+	margin-top: 1rem;
+	font-size: 1.6rem;
+	font-weight: bold;
+	background-color: var(--yellow);
+	color: var(--dark-grey);
+}
+
+.newsletter #mc_embed_signup .button:hover{
+	color: var(--white);
 }
 
 .notice,
@@ -2175,16 +2203,19 @@ article.notices header img{
 
 @media screen and (min-width:770px){
 	.woocommerce ul.products[class*=columns-] li.product{
-		width: 28%;
+		width: 31%;
 	}
 	.woocommerce ul.products li.product .woocommerce-loop-product__title{
 		font-size: var(--h4);
+	}
+	.woocommerce ul.products li.product, .woocommerce-page ul.products li.product{
+		margin-right: 2%;
 	}
 }
 
 @media screen and (min-width:870px){
 	.woocommerce ul.products[class*=columns-] li.product{
-		width: 29%;
+		width: 23%;
 	}
 }
 
@@ -2239,21 +2270,27 @@ footer .flex{
 	flex-wrap: wrap;
 }
 
-@media screen and (min-width:600px){
+@media screen and (min-width:440px){
 	.footer-nav ul{
-		max-height: 38rem;
+		max-height: 36rem;
 	}
 }
 
-@media screen and (min-width:730px){
+@media screen and (min-width:560px){
+	.footer-nav ul{
+		max-height: 36rem;
+	}
+}
+
+@media screen and (min-width:700px){
+	footer .main-navigation{
+		width: 47%;
+	}
+}
+
+@media screen and (min-width:1100px){
 	.footer-nav ul{
 		max-height: 30rem;
-	}
-}
-
-@media screen and (min-width:900px){
-	.footer-nav ul{
-		max-height: 22rem;
 	}
 }
 
@@ -2279,10 +2316,19 @@ footer .newsletter{
 	width: 100%;
 }
 
-@media screen and (min-width:1400px){
+@media screen and (min-width:700px){
 	footer .newsletter{
-		width: 30%;
-		padding-top: 0;
+		width: 49%;
+	}
+}
+
+@media screen and (min-width:1400px){
+	footer .flex .flex{
+		width: 70%;
+	}
+
+	footer .newsletter{
+		padding: 0;
 	}
 }
 
@@ -2300,8 +2346,6 @@ footer .newsletter h3{
 footer .newsletter .wpcf7{
 	padding: 0;
 }
-
-
 
 footer .social{
 	padding-left: 2rem;
