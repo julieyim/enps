@@ -130,5 +130,17 @@ if ( ! function_exists( 'enps_widget_areas' ) ) {
                 'after_title'   => '</h3>',
             )
         );
+        //EVENTS WIDGET
+        register_sidebar(
+            array(
+                'name'          => __( 'Events Display', 'enps' ),
+                'id'            => 'events-display',
+                'description'   => __( 'Displaying events on front page widget', 'enps' ),
+                'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</aside>',
+                'before_title'  => '<h3 class="widget-title">',
+                'after_title'   => '</h3>',
+            )
+        );
 	}
 } // endif function_exists( 'codefish_widgets_init' ).

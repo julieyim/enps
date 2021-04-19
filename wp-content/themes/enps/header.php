@@ -17,7 +17,8 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
+	<meta name="description" content="Learn about Edmonton’s native plants, buy native Edmonton plants and seeds, and participate in events and projects at the Edmonton Native Plant Society.">
+	<meta name="keywords" content="learn gardening, growing plants, landscaping, edmonton parklands, plant volunteer, flower, weeds, wildflower, wild grasses, buy seeds, shop seeds, shop plants, buy plants, pollinators, plant guides, plant resources, edmonton plants, edmonton nature, edmonton seeds, edmonton flora, river valley, plant events">
 	<?php wp_head(); ?>
 </head>
 

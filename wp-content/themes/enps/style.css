@@ -603,6 +603,7 @@ object {
 
 img {
 	max-width: 100%;
+	height: auto;
 }
 
 figure {
@@ -2056,6 +2057,46 @@ article.notices header img{
 
 .mission{
 	margin-bottom: 4rem;
+}
+
+
+/* events calendar
+----------------------------------------------- */
+.tribe-common .tribe-common-h8{
+	font-size: 1.8rem;
+}
+
+.tribe-compatibility-container header{
+	background-color: var(--light-beige);
+	padding: 1rem 2rem;
+}
+
+.tribe-events-widget .tribe-events-widget-events-list__header{
+	background-color: transparent;
+	box-shadow: transparent;
+	padding: 0;
+}
+
+.tribe-compatibility-container h2,
+.tribe-events-widget-events-list__events h3,
+.tribe-events-widget-events-list__events h3 a{
+	font-family: var(--heading);
+	color: var(--purple);
+}
+
+.tribe-events-widget-events-list__events span{
+	font-family: var(--body);
+	font-size: 1.6rem;
+}
+
+.tribe-events-widget-events-list__event-date-tag-month,
+.tribe-events-widget-events-list__event-date-tag-daynum{
+	font-family: var(--body);
+	font-size: 2rem;
+}
+
+.tribe-events-widget-events-list__view-more a{
+	font-family: var(--body);
 }
 
 /* articles & guides

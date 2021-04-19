@@ -263,36 +263,6 @@ add_action('init', 'create_post_type_notices');
 
 
 
-//Register Events Custom Post type
-function create_post_type_events(){
-	// creates label names for the post type in the dashboard the post panel and in the toolbar.
-	$labels = array(
-		'name'                  => __('Events'),
-		'singular_name'         => __('Event'), 
-		'add_new'               => 'New Event', 
-		'add_new_item'          => 'Add New Event',
-		'edit_item'             => 'Edit Event',
-		'featured_image'        => _x( 'Event Post Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'textdomain' ),
-		'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-		'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-		'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'textdomain' ),
-
-	);
-	// creates the post functionality that you want for a full listing
-	$args = array(
-		'labels'            => $labels,
-		'public'            => true,
-		'has_archive'       => true,
-		'rewrite'           => array('slug' => 'events'),
-		'menu_position'     => 22,
-		'menu_icon'         => 'dashicons-calendar-alt',
-		'capability_type'   => 'page',
-		'taxonomies'        => array('category', 'post_tag'),
-		'supports'          => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
-	);
-
-	register_post_type('events', $args);
-}
 // Hooking up our function to theme setup
 add_action('init', 'create_post_type_events');
 
@@ -395,12 +365,5 @@ function post_pagination() {
 }
 
 
-/**
- * Woocommerce - Change number or products per row to 4
- */
-/* add_filter('loop_shop_columns', 'loop_columns', 999);
-if (!function_exists('loop_columns')) {
-	function loop_columns() {
-		return 4; // 4 products per row
-	}
-} */
+/* the events gallery allow shortcodes */
+add_filter( 'tribe_customizer_should_print_shortcode_customizer_styles', '__return_true' );
